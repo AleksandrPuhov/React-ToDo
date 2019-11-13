@@ -2,22 +2,10 @@ import React, { useState } from 'react';
 import './App.css';
 import Person from './Person/Person'
 
+import AppHeader from './components/AppHeader'
+import SearchPanel from './components/SearchPanel'
+import ListToDo from './components/ListToDo'
 
-const AppHeader = () => {
-  return <h1>My ToDo List</h1>
-};
-const SearchPanel = () => {
-  return <input placeholder="search" />
-};
-const ListToDo = () => {
-  const listToDo = ["1", "2"];
-  return (
-    <ul>
-      <li> {listToDo[0]} </li>
-      <li> {listToDo[1]} </li>
-    </ul>
-  );
-};
 
 function App() {
   const [personState, setpersonState] = useState({
@@ -37,6 +25,13 @@ function App() {
       ]
     });
   };
+
+  const toDoData = [
+    { text: '1', important: false },
+    { text: '2', important: true },
+    { text: '3', important: false }
+  ];
+
   return (
     <div className="App">
       <button onClick={switchNameHandler} >Swich Name</button>
@@ -46,7 +41,7 @@ function App() {
 
       <AppHeader />
       <SearchPanel />
-      <ListToDo />
+      <ListToDo toDoData={toDoData} />
 
     </div>
   );

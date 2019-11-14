@@ -4,17 +4,25 @@ import ListItemToDo from './ListItemToDo'
 const ListToDo = ({ toDoData }) => {
 
   const listItems = toDoData.map(
-    (item) => {
+    ({idData,...item}) => {
+      //console.log(item);
       return (
-        <li> <ListItemToDo {...item} /> </li>
+        <div key={idData} 
+        className="list-group-item"
+      // className="conteiner"
+        >
+          <ListItemToDo  {...item} />
+        </div>
       );
     }
   );
 
   return (
-    <ul>
+    <div 
+   // className="conteiner"
+    >
       {listItems}
-    </ul>
+    </div>
   );
 };
 

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './App.css';
 import Person from './Person/Person'
 
 import AppHeader from './components/AppHeader'
@@ -27,9 +26,24 @@ function App() {
   };
 
   const toDoData = [
-    { text: '1', important: false },
-    { text: '2', important: true },
-    { text: '3', important: false }
+    {
+      idData: 1, text: 'Text 1', toDoTags: [
+        { idTag: 1, activ: true, text: 'Text 1', priority: 1, color: "bg-primary" },
+        { idTag: 2, activ: true, text: 'Text 2', priority: 2, color: "bg-success" },
+        { idTag: 3, activ: false, text: 'Text 3', priority: 1, color: "bg-danger" }]
+    },
+    {
+      idData: 2, text: 'Text 2', toDoTags: [
+        { idTag: 1, activ: false, text: 'Text 1', priority: 1, color: "blue" },
+        { idTag: 2, activ: true, text: 'Text 2', priority: 2, color: "bg-success" },
+        { idTag: 3, activ: true, text: 'Text 3', priority: 1, color: "bg-danger" }]
+    },
+    {
+      idData: 3, text: 'Text 3', toDoTags: [
+        { idTag: 1, activ: true, text: 'Text 1', priority: 1, color: "bg-primary" },
+        { idTag: 2, activ: false, text: 'Text 2', priority: 2, color: "bg-success" },
+        { idTag: 3, activ: false, text: 'Text 3', priority: 1, color: "bg-danger" }]
+    }
   ];
 
   return (

@@ -1,13 +1,13 @@
 import React from 'react';
 import ListItemToDo from './ListItemToDo'
 
-const ListToDo = ({ toDoData, deleteToDoItemOnId }) => {
+const ListToDo = ({ toDoData, deleteItemOnId, tagList }) => {
 
   const listItems = toDoData.map(
     ({ idData, ...item }) => {
       return (
         <ListItemToDo key={idData}
-          clickDelete={() => deleteToDoItemOnId(idData)} {...item} />
+          clickDelete={() => deleteItemOnId(idData)} {...item} tagList ={tagList} />
       );
     }
   );

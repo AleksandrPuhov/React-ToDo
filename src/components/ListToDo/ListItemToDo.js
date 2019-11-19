@@ -3,7 +3,7 @@ import TagPanel from './TagPanel'
 import './ListItemToDo.css'
 
 
-const ListItemToDo = ({ clickDelete, text, done, toDoTags }) => {
+const ListItemToDo = ({ clickDelete, text, done, toDoTags,tagList }) => {
 
   const [textState, setTextState] = useState({ done });
 
@@ -17,10 +17,7 @@ const ListItemToDo = ({ clickDelete, text, done, toDoTags }) => {
   }
 
   return (
-    <div
-      className="m-1 border d-flex flex-col"
-    >
-
+    <div className="m-1 border d-flex flex-col" >
       <div className="flex-grow-1">
         <div className="m-1">
           <span className={classNameText}
@@ -28,7 +25,7 @@ const ListItemToDo = ({ clickDelete, text, done, toDoTags }) => {
             {text}
           </span>
         </div>
-        <TagPanel toDoTags={toDoTags} />
+        <TagPanel toDoTags={toDoTags} tagList={tagList}/>
       </div>
       <div className="align-self-center m-1">
         <button className="btn btn-outline-success btn-sm"

@@ -17,7 +17,6 @@ function App() {
     { idTag: 4, color: 'info', icon: 'fa fa-shopping-cart' },
   ];
 
-
   const [toDoDataState, settoDoDataState] = useState({
     toDoData: [
       {
@@ -35,30 +34,50 @@ function App() {
     ]
   });
 
+  const thisState = toDoDataState.toDoData
+
   const deleteItemOnId = (id) => {
-    const idIndex = toDoDataState.toDoData.findIndex((el) => el.idData === id);
-    const befor = toDoDataState.toDoData.slice(0, idIndex);
-    const after = toDoDataState.toDoData.slice(idIndex + 1);
+    const idIndex = thisState.findIndex((el) => el.idData === id);
+    const befor = thisState.slice(0, idIndex);
+    const after = thisState.slice(idIndex + 1);
     settoDoDataState({ toDoData: [...befor, ...after] });
   }
 
-  const addNewItem = () => {
-    // const idIndex = toDoDataState.toDoData.findIndex((el) => el.idData === id);
-    // const befor = toDoDataState.toDoData.slice(0, idIndex);
-    // const after = toDoDataState.toDoData.slice(idIndex + 1);
-    // settoDoDataState({ toDoData: [...befor, ...after] });
+  const itemClickOnId = (id) => {
+    const idIndex = thisState.findIndex((el) => el.idData === id);
+    const newItem = { ...thisState[idIndex], done: !thisState[idIndex].done }
+    const befor = thisState.slice(0, idIndex);
+    const after = thisState.slice(idIndex + 1);
+    settoDoDataState({ toDoData: [...befor, newItem, ...after] });
+  }
+
+  const addNewItem = (text, tagSelect) => {
+    const maxIndex = Math.max(...thisState.map(ob => ob.idData))
+
+    let addTags = []
+    tagSelect.forEach((el, ind) => { if (el) addTags.push(ind + 1) })
+
+    settoDoDataState({
+      toDoData: [...thisState,
+      {
+        idData: maxIndex + 1, text: text, done: false,
+        toDoTags: addTags
+      }
+      ]
+    });
   }
 
   return (
     <div className="App">
       <AppHeader />
       <SearchPanel />
-      <ListToDo toDoData={toDoDataState.toDoData}
+      <ListToDo toDoData={thisState}
         deleteItemOnId={deleteItemOnId}
+        itemClickOnId={itemClickOnId}
         tagList={tagList} />
-      <InputPanel toDoData={toDoDataState.toDoData}
+      <InputPanel
         addNewItem={addNewItem}
-        tagList={tagList}/>
+        tagList={tagList} />
 
     </div>
   );

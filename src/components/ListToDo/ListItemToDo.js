@@ -1,18 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import TagPanel from './TagPanel'
 import './ListItemToDo.css'
 
 
-const ListItemToDo = ({ clickDelete, text, done, toDoTags,tagList }) => {
-
-  const [textState, setTextState] = useState({ done });
-
-  const itemClick = () => {
-    setTextState({ done: !textState.done })
-  }
+const ListItemToDo = ({ clickDelete, itemClick, text, done, toDoTags, tagList }) => {
 
   let classNameText = "text-format";
-  if (textState.done) {
+  if (done) {
     classNameText += " done";
   }
 
@@ -25,7 +19,7 @@ const ListItemToDo = ({ clickDelete, text, done, toDoTags,tagList }) => {
             {text}
           </span>
         </div>
-        <TagPanel toDoTags={toDoTags} tagList={tagList}/>
+        <TagPanel toDoTags={toDoTags} tagList={tagList} />
       </div>
       <div className="align-self-center m-1">
         <button className="btn btn-outline-success btn-sm"

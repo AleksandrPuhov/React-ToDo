@@ -14,6 +14,7 @@ const InputPanel = ({ addNewItem, tagList }) => {
   const onClick = () => {
     addNewItem(inputState, tagSelectState.tagSelect)
     setInputState("")
+    setTagSelectState({tagSelect : [false, false, false, false]})
   }
 
   const listTags = tagList.map(
@@ -36,7 +37,6 @@ const InputPanel = ({ addNewItem, tagList }) => {
       );
     }
   );
-
 
   return (
     <div className="d-flex flex-row" >

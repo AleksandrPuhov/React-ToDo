@@ -16,7 +16,7 @@ const TagPanel = ({ toDoTags,tagList }) => {
   );
 
   return (
-    <div className="m-1">
+    <div className="mb-1">
       {listTags}
     </div>
   );

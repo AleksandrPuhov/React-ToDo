@@ -30,7 +30,7 @@ const InputPanel = ({ addNewItem, tagList }) => {
       return (
         <button type="button"
           key={idTag}
-          className={"btn mr-1 ml-1 btn-" + tagAdd + color}
+          className={"btn mr-1 ml-1 btn-sm btn-" + tagAdd + color}
           onClick={clickTag}>
           <i className={icon} />
         </button>
@@ -42,9 +42,9 @@ const InputPanel = ({ addNewItem, tagList }) => {
     <div className="d-flex flex-row" >
       <div className="d-flex flex-column flex-grow-1">
 
-        <div className="input-group m-1 ">
+        <div className="input-group ">
           <input type="text"
-            className="form-control mr-1"
+            className="form-control mr-1 ml-1"
             placeholder="Add new ToDo and select tags"
             onChange={updateInput}
             value={inputState}
@@ -55,7 +55,7 @@ const InputPanel = ({ addNewItem, tagList }) => {
         </div>
       </div>
       <div className="align-self-center m-1">
-        <button type="button" className="btn btn-outline-secondary"
+        <button type="button" className="btn btn-outline-secondary btn-lg btn-block"
           onClick={onClick}  >
           ADD
         </button>

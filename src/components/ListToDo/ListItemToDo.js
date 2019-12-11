@@ -13,7 +13,7 @@ const ListItemToDo = ({ clickDelete, itemClick, text, done, toDoTags, tagList })
   return (
     <div className="m-1 border d-flex flex-col" >
       <div className="flex-grow-1">
-        <div className="m-1">
+        <div className="ml-1 mr-1 mt-1">
           <span className={classNameText}
             onClick={itemClick}>
             {text}

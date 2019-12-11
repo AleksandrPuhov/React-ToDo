@@ -28,7 +28,7 @@ function App() {
         toDoTags: [2, 3, 4]
       },
       {
-        idData: 3, text: 'Text 33333 33333 3333 333', done: true,
+        idData: 3, text: 'Text 33333 33333 3333 333', done: false,
         toDoTags: [1, 3]
       }
     ]

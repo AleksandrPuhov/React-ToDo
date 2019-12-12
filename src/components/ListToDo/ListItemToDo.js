@@ -9,13 +9,26 @@ const ListItemToDo = ({ clickDelete, itemClick, text, done, toDoTags, tagList })
   if (done) {
     classNameText += " done";
   }
+  const iconType = done?"far fa-check-circle fa-lg":"far fa-circle fa-lg"
+
+  const toDoClick = ()=>{
+    console.log("123")
+  }
 
   return (
     <div className="m-1 border d-flex flex-col" >
-      <div className="flex-grow-1">
+      <div className="align-self-center m-1">
+        <i className={iconType}
+          onClick={itemClick}
+        />
+      </div>
+      <div className="flex-grow-1"
+         onClick={toDoClick}
+      >
         <div className="ml-1 mr-1 mt-1">
           <span className={classNameText}
-            onClick={itemClick}>
+            // onClick={itemClick}
+          >
             {text}
           </span>
         </div>
@@ -25,7 +38,7 @@ const ListItemToDo = ({ clickDelete, itemClick, text, done, toDoTags, tagList })
         <button className="btn btn-outline-success btn-sm"
           onClick={clickDelete}
         >
-          <i className="fa fa-trash-o" />
+          <i className="far fa-trash-alt" />
         </button>
       </div>
     </div>

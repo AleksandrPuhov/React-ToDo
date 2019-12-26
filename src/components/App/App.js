@@ -4,7 +4,7 @@ import AppHeader from '../AppHeader/AppHeader';
 import SearchPanel from '../SearchPanel/SearchPanel';
 import ListToDo from '../ListToDo/ListToDo';
 import InputPanel from '../InputPanel/InputPanel';
-
+import ModalEditTag from '../ModalEditTag/ModalEditTag';
 
 import './App.css';
 
@@ -69,6 +69,7 @@ function App() {
 
   return (
     <div className="App">
+      {/* <ModalEditTag /> */}
       <AppHeader />
       <SearchPanel />
       <ListToDo toDoData={thisState}
